@@ -14,6 +14,8 @@ namespace AspNetCoreApp
     {
         public static void Main(string[] args)
         {
+            // Console.WriteLine("Web App");
+
             CreateWebHostBuilder(args).Build().Run();
         }
 

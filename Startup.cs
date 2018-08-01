@@ -22,6 +22,7 @@ namespace AspNetCoreApp
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
+        //Prepare your Environment. DI! 
         public void ConfigureServices(IServiceCollection services)
         {
             services.Configure<CookiePolicyOptions>(options =>
@@ -54,6 +55,10 @@ namespace AspNetCoreApp
             app.UseCookiePolicy();
 
             app.UseMvc();
+            // app.Run(async (context) => 
+            // {
+            //     await context.Response.WriteAsync("Welcome Sebas");
+            // }) ;
         }
     }
 }
