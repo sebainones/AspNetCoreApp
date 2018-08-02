@@ -32,11 +32,14 @@ namespace AspNetCoreApp
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-
+            //Add Model View Controller
+            //TODO: Find out why not services.AddMvcCore()??
+            
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        //Here we put some middleware stuff
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
@@ -55,10 +58,13 @@ namespace AspNetCoreApp
             app.UseCookiePolicy();
 
             app.UseMvc();
-            // app.Run(async (context) => 
-            // {
-            //     await context.Response.WriteAsync("Welcome Sebas");
-            // }) ;
+
+            //if this is no commented out and  the MVC is commented, then the Debault Response will be this one
+            //or if routing is not working for some reason.
+            app.Run(async (context) => 
+            {
+                await context.Response.WriteAsync("Something went wrong with MVC routing");
+            }) ;
         }
     }
 }

@@ -9,10 +9,12 @@ namespace AspNetCoreApp.Pages
     public class ContactModel : PageModel
     {
         public string Message { get; set; }
+        public string Author { get; set; }
 
         public void OnGet()
         {
-            Message = "Your contact page.";
+            Message = "Página de contacto";
+            Author= "Sebastian Inones";
         }
     }
 }
