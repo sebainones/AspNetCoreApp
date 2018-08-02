@@ -1,10 +1,16 @@
 ﻿@page
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
 <!-- This is a razor page -->
 @model IndexModel
 @{
     ViewData["Title"] = "Asp .Net Core page";
 }
 <h1>Welcome to my Asp .Net Core 2 page</h1>
+
+<h2>
+    @Configuration["ConfigMessage"]
+</h2>
 
 <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
     <ol class="carousel-indicators">
